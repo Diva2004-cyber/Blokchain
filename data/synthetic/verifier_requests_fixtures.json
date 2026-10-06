@@ -1,0 +1,38 @@
+[
+  {
+    "requestId": "REQ-SYNTH-2026-001",
+    "purpose": "Verifikasi Kualifikasi Lamaran Pekerjaan Software Engineer",
+    "verifier": {
+      "id": "did:web:techcorp-synthetic.id",
+      "name": "PT Teknologi Maju Sintetis",
+      "ethereumAddress": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+    },
+    "audience": "https://techcorp-synthetic.id/verify-callback",
+    "nonce": "n-01928374-9821-4bcf-a51b-synthnonce001",
+    "requestedAttributes": [
+      "fullName",
+      "degreeName",
+      "studyProgram",
+      "graduationDate"
+    ],
+    "expiresAt": "2026-10-06T09:30:00Z",
+    "oneTimeNonce": true
+  },
+  {
+    "requestId": "REQ-SYNTH-2026-REPLAY-TARGET",
+    "purpose": "Permintaan untuk simulasi replay attack (AT-08)",
+    "verifier": {
+      "id": "did:web:techcorp-synthetic.id",
+      "name": "PT Teknologi Maju Sintetis",
+      "ethereumAddress": "0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65"
+    },
+    "audience": "https://techcorp-synthetic.id/verify-callback",
+    "nonce": "n-replay-fixed-single-use-nonce-12345",
+    "requestedAttributes": [
+      "fullName",
+      "degreeName"
+    ],
+    "expiresAt": "2026-10-06T10:00:00Z",
+    "oneTimeNonce": true
+  }
+]

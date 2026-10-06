@@ -1,0 +1,44 @@
+{
+  "name": "academic-credential-blockchain",
+  "version": "1.0.0",
+  "description": "Prototype Sistem Verifikasi Kredensial Akademik Berbasis Blockchain - UTS OBE 2026/2027",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npx hardhat compile",
+    "typecheck": "tsc --noEmit",
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "test:security": "npx hardhat test tests/security/*.ts",
+    "test:integration": "npx hardhat test tests/integration/*.ts",
+    "dev": "npm run dev --workspace=apps/portal"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.8",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.12",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/chai": "^4.3.20",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.13.0",
+    "chai": "^4.5.0",
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5",
+    "hardhat": "^2.22.18",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "keywords": [
+    "blockchain",
+    "verifiable-credentials",
+    "w3c-vc",
+    "smart-contract",
+    "solidity",
+    "academic-credential",
+    "ethereum"
+  ],
+  "author": "UTS Blockchain Project Team",
+  "license": "UNLICENSED"
+}
