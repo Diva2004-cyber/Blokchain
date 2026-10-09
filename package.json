@@ -11,8 +11,15 @@
     "typecheck": "tsc --noEmit",
     "compile": "npx hardhat compile",
     "test": "npx hardhat test",
-    "test:security": "npx hardhat test tests/security/*.ts",
-    "test:integration": "npx hardhat test tests/integration/*.ts",
+    "test:security": "npx hardhat test tests/security/CredentialRegistry.security.test.ts tests/security/Acceptance.security.test.ts",
+    "test:issuance": "npx hardhat test tests/integration/Issuance.integration.test.ts",
+    "test:verification": "npx hardhat test tests/integration/Verification.integration.test.ts",
+    "test:lifecycle": "npx hardhat test tests/integration/Lifecycle.integration.test.ts",
+    "test:acceptance": "npx hardhat test tests/security/Acceptance.security.test.ts",
+    "scan:secrets": "ts-node scripts/secret-scan.ts",
+    "benchmark": "npx hardhat run tests/performance/benchmark.ts",
+    "simulate:consortium": "npx hardhat run scripts/simulate-consortium.ts",
+    "test:all": "npx hardhat test blockchain/test/CredentialRegistry.test.ts tests/security/CredentialRegistry.security.test.ts tests/security/Acceptance.security.test.ts tests/integration/Issuance.integration.test.ts tests/integration/Verification.integration.test.ts tests/integration/Lifecycle.integration.test.ts",
     "dev": "npm run dev --workspace=apps/portal"
   },
   "devDependencies": {

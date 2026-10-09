@@ -2,7 +2,8 @@
 
 > **UTS Blockchain OBE — Project-Based (T.A. 2026/2027)**  
 > **Source of Truth**: [`PRD_Prototype_Verifikasi_Kredensial_Akademik_AI_Agents.md`](./PRD_Prototype_Verifikasi_Kredensial_Akademik_AI_Agents.md)  
-> **Status**: Prototype Specification & Implementation
+> **Naskah Laporan Akhir (P1 s/d P6)**: [`docs/report/LAPORAN_UTS_BLOCKCHAIN_OBE.md`](./docs/report/LAPORAN_UTS_BLOCKCHAIN_OBE.md)  
+> **Status**: Full Implementation & Verified (M0 s/d M9 DONE)
 
 ---
 
@@ -82,9 +83,44 @@ npm test
 npm run test:security
 ```
 
-### 4.5 Menjalankan Pengujian Integrasi
+### 4.5 Menjalankan Pengujian Integrasi Penerbitan (M3)
 ```bash
-npm run test:integration
+npm run test:issuance
+```
+
+### 4.6 Menjalankan Pengujian Integrasi Verifikasi (M4)
+```bash
+npm run test:verification
+```
+
+### 4.7 Menjalankan Pengujian Integrasi Siklus Hidup (M5)
+```bash
+npm run test:lifecycle
+```
+
+### 4.8 Menjalankan Acceptance & Negative Tests (AT-01 s/d AT-10)
+```bash
+npm run test:acceptance
+```
+
+### 4.9 Menjalankan Pemindaian Kebocoran Rahasia (Secret Scan)
+```bash
+npm run scan:secrets
+```
+
+### 4.10 Menjalankan Benchmark Kinerja (M8)
+```bash
+npm run benchmark
+```
+
+### 4.11 Menjalankan Simulasi Konsorsium Besu QBFT (M9)
+```bash
+npm run simulate:consortium
+```
+
+### 4.12 Menjalankan Seluruh Rangkaian Pengujian (All Tests)
+```bash
+npm run test:all
 ```
 
 ---
@@ -95,11 +131,12 @@ npm run test:integration
 | :--- | :--- | :---: | :--- |
 | **M0** | Setup Environment & Tooling | ✅ **DONE** | [`docs/evidence/E-01-environment.md`](./docs/evidence/E-01-environment.md) |
 | **M1** | Repo Structure, VC Schema & Synthetic Dataset | ✅ **DONE** | [`data/synthetic/`](./data/synthetic/) |
-| **M2** | Smart Contract `CredentialRegistry.sol` & Tests | ⏳ Siap Dikerjakan | - |
-| **M3** | Issuance & Commitment Anchoring Flow | ⏳ Backlog | - |
-| **M4** | Verification Flow (Signature, Status, Expiry) | ⏳ Backlog | - |
-| **M5** | Lifecycle State Machine (Suspend/Reactivate/Revoke) | ⏳ Backlog | - |
-| **M6** | Portal UI (Issuer, Wallet, Verifier) | ⏳ Backlog | - |
-| **M7** | Security QA & Acceptance Tests (AT-01 s/d AT-10) | ⏳ Backlog | - |
-| **M8** | Performance Benchmark & Evidence Package | ⏳ Backlog | - |
-| **M9** | Simulasi Konsorsium Besu QBFT | ⏳ Backlog | - |
+| **M2** | Smart Contract `CredentialRegistry.sol` & Tests | ✅ **DONE** | [`docs/evidence/E-02-contract.md`](./docs/evidence/E-02-contract.md) |
+| **M3** | Issuance & Commitment Anchoring Flow | ✅ **DONE** | [`docs/evidence/E-03-issuance.md`](./docs/evidence/E-03-issuance.md) |
+| **M4** | Verification Flow (Signature, Status, Expiry, Nonce) | ✅ **DONE** | [`docs/evidence/E-04-verification.md`](./docs/evidence/E-04-verification.md) |
+| **M5** | Lifecycle State Machine (Suspend/Reactivate/Revoke) | ✅ **DONE** | [`docs/evidence/E-05-lifecycle.md`](./docs/evidence/E-05-lifecycle.md) |
+| **M6** | Portal UI (Issuer, Wallet, Verifier, Audit) | ✅ **DONE** | [`docs/evidence/E-06-portal.md`](./docs/evidence/E-06-portal.md) |
+| **M7** | Security QA & Acceptance Tests (AT-01 s/d AT-10) | ✅ **DONE** | [`docs/evidence/E-07-security-qa.md`](./docs/evidence/E-07-security-qa.md) |
+| **M8** | Performance Benchmark & Evidence Package | ✅ **DONE** | [`docs/evidence/E-08-performance.md`](./docs/evidence/E-08-performance.md) |
+| **M9** | Simulasi Konsorsium Besu QBFT | ✅ **DONE** | [`docs/evidence/E-10-besu-consortium.md`](./docs/evidence/E-10-besu-consortium.md) |
+

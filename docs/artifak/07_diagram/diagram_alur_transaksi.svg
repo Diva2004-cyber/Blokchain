@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 950" width="100%" height="100%" style="background-color: #0b1120; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#f59e0b" />
+    </marker>
+  </defs>
+
+  <text x="550" y="45" font-size="24" font-weight="800" fill="url(#headerGrad)" text-anchor="middle">DIAGRAM ALUR TRANSAKSI END-TO-END VERIFIKASI KREDENSIAL</text>
+  <text x="550" y="75" font-size="14" fill="#94a3b8" text-anchor="middle">Siklus 4 Fase: Penerbitan, Permintaan VP, Verifikasi 6-Lapisan, dan Siklus Hidup On-Chain</text>
+
+  <!-- Lifelines Actors -->
+  <!-- 1. Issuer -->
+  <rect x="70" y="110" width="180" height="50" rx="8" fill="#0284c7" />
+  <text x="160" y="140" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Issuer (Kampus)</text>
+  <line x1="160" y1="160" x2="160" y2="880" stroke="#334155" stroke-dasharray="6" stroke-width="2" />
+
+  <!-- 2. Holder -->
+  <rect x="350" y="110" width="180" height="50" rx="8" fill="#0d9488" />
+  <text x="440" y="140" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Holder (Mahasiswa)</text>
+  <line x1="440" y1="160" x2="440" y2="880" stroke="#334155" stroke-dasharray="6" stroke-width="2" />
+
+  <!-- 3. Verifier -->
+  <rect x="630" y="110" width="180" height="50" rx="8" fill="#d97706" />
+  <text x="720" y="140" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Verifier (Perusahaan)</text>
+  <line x1="720" y1="160" x2="720" y2="880" stroke="#334155" stroke-dasharray="6" stroke-width="2" />
+
+  <!-- 4. Smart Contract -->
+  <rect x="890" y="110" width="180" height="50" rx="8" fill="#7c3aed" />
+  <text x="980" y="140" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Smart Contract Registry</text>
+  <line x1="980" y1="160" x2="980" y2="880" stroke="#334155" stroke-dasharray="6" stroke-width="2" />
+
+  <!-- FASE 1: Penerbitan & Anchoring -->
+  <rect x="50" y="180" width="1020" height="150" rx="6" fill="#1e293b" fill-opacity="0.5" stroke="#0284c7" stroke-width="1" />
+  <text x="65" y="205" font-size="13" font-weight="700" fill="#38bdf8">FASE 1: PENERBITAN KREDENSIAL &amp; ANCHORING ON-CHAIN</text>
+
+  <line x1="160" y1="230" x2="980" y2="230" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="570" y="222" font-size="12" fill="#e2e8f0" text-anchor="middle">1. issueCredential(credentialId, issuerId, keccak256Commitment, validUntil)</text>
+
+  <line x1="980" y1="260" x2="160" y2="260" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="570" y="252" font-size="11" fill="#94a3b8" text-anchor="middle">2. Transaksi Dikonfirmasi &amp; Event CredentialIssued Terpancar</text>
+
+  <line x1="160" y1="295" x2="440" y2="295" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)" />
+  <text x="300" y="287" font-size="12" fill="#a7f3d0" text-anchor="middle">3. Serahkan W3C VC JSON Lengkap ke Wallet Mahasiswa (Off-Chain)</text>
+
+  <!-- FASE 2: Challenge Request & Verifiable Presentation -->
+  <rect x="50" y="350" width="1020" height="150" rx="6" fill="#1e293b" fill-opacity="0.5" stroke="#d97706" stroke-width="1" />
+  <text x="65" y="375" font-size="13" font-weight="700" fill="#f59e0b">FASE 2: PERMINTAAN TANTANGAN &amp; PRESENTASI (VP)</text>
+
+  <line x1="720" y1="400" x2="440" y2="400" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowOrange)" />
+  <text x="580" y="392" font-size="12" fill="#fde68a" text-anchor="middle">4. Verifier Request: Kirim One-Time Nonce Acak, Target Audience &amp; Atribut Wajib</text>
+
+  <line x1="440" y1="450" x2="720" y2="450" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)" />
+  <text x="580" y="442" font-size="12" fill="#a7f3d0" text-anchor="middle">5. Verifiable Presentation: Kirim VC + Nonce Signature Mahasiswa</text>
+
+  <!-- FASE 3: Verifikasi 6-Lapisan -->
+  <rect x="50" y="520" width="1020" height="180" rx="6" fill="#1e293b" fill-opacity="0.5" stroke="#10b981" stroke-width="1" />
+  <text x="65" y="545" font-size="13" font-weight="700" fill="#34d399">FASE 3: EVALUASI VERIFIKASI 6-LAPISAN OLEH VERIFIER</text>
+
+  <line x1="720" y1="575" x2="980" y2="575" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="850" y="567" font-size="12" fill="#e2e8f0" text-anchor="middle">6. Cek Status On-Chain: getCredential(id) &amp; getIssuer(issuerAddress)</text>
+
+  <line x1="980" y1="610" x2="720" y2="610" stroke="#94a3b8" stroke-dasharray="4" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="850" y="602" font-size="11" fill="#94a3b8" text-anchor="middle">7. Return: Status = ACTIVE, On-Chain Commitment Hash, Issuer = Active</text>
+
+  <rect x="670" y="635" width="340" height="50" rx="4" fill="#064e3b" stroke="#059669" />
+  <text x="840" y="655" font-size="11" font-weight="700" fill="#a7f3d0" text-anchor="middle">Hasil Evaluasi 6-Lapisan Lulus 100%:</text>
+  <text x="840" y="672" font-size="10" fill="#d1fae5" text-anchor="middle">Format OK | Signature Sah | Nonce Fresh | Hash Cocok | Status Aktif</text>
+
+  <!-- FASE 4: Siklus Hidup (Revocation) -->
+  <rect x="50" y="720" width="1020" height="150" rx="6" fill="#1e293b" fill-opacity="0.5" stroke="#ef4444" stroke-width="1" />
+  <text x="65" y="745" font-size="13" font-weight="700" fill="#f87171">FASE 4: SIKLUS HIDUP KREDENSIAL (PENANGGUHAN / PENCABUTAN)</text>
+
+  <line x1="160" y1="780" x2="980" y2="780" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="570" y="772" font-size="12" fill="#fca5a5" text-anchor="middle">8. revokeCredential(credentialId, "Plagiarisme Terbukti")</text>
+
+  <line x1="980" y1="820" x2="980" y2="845" stroke="#ef4444" stroke-width="2" />
+  <text x="965" y="835" font-size="11" fill="#fca5a5" text-anchor="end">Status = REVOKED (Terminal State)</text>
+</svg>

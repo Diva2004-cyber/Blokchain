@@ -1,0 +1,107 @@
+[
+  {
+    "txid": "tx_genesis_00",
+    "description": "UTXO Awal Kas Akademik Kampus",
+    "inputs": [],
+    "outputs": [
+      {
+        "index": 0,
+        "address": "bc1qsynth_kampus_kas_master",
+        "valueBtc": 1.50000000,
+        "valueSats": 150000000,
+        "spent": true
+      }
+    ]
+  },
+  {
+    "txid": "tx_sim_01",
+    "description": "Alokasi Dana Beasiswa Mahasiswa & Kembalian",
+    "inputs": [
+      {
+        "prevTxid": "tx_genesis_00",
+        "vout": 0,
+        "valueBtc": 1.50000000
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "address": "bc1qsynth_mahasiswa_beasiswa_01",
+        "valueBtc": 0.10000000,
+        "valueSats": 10000000,
+        "spent": false
+      },
+      {
+        "index": 1,
+        "address": "bc1qsynth_kampus_change_address_1",
+        "valueBtc": 1.39950000,
+        "valueSats": 139950000,
+        "spent": true
+      }
+    ],
+    "feeBtc": 0.00050000,
+    "feeSats": 50000,
+    "virtualSize": 215,
+    "feeRateSatVb": 232.55
+  },
+  {
+    "txid": "tx_sim_02",
+    "description": "Honorarium Verifikasi Validator Konsorsium",
+    "inputs": [
+      {
+        "prevTxid": "tx_sim_01",
+        "vout": 1,
+        "valueBtc": 1.39950000
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "address": "bc1qsynth_validator_honorarium_01",
+        "valueBtc": 0.25000000,
+        "valueSats": 25000000,
+        "spent": true
+      },
+      {
+        "index": 1,
+        "address": "bc1qsynth_kampus_change_address_2",
+        "valueBtc": 1.14920000,
+        "valueSats": 114920000,
+        "spent": true
+      }
+    ],
+    "feeBtc": 0.00030000,
+    "feeSats": 30000,
+    "virtualSize": 140,
+    "feeRateSatVb": 214.28
+  },
+  {
+    "txid": "tx_sim_03",
+    "description": "Konsolidasi Multi-Input ke Rekening Bersama LLDIKTI",
+    "inputs": [
+      {
+        "prevTxid": "tx_sim_02",
+        "vout": 0,
+        "valueBtc": 0.25000000
+      },
+      {
+        "prevTxid": "tx_sim_02",
+        "vout": 1,
+        "valueBtc": 1.14920000
+      }
+    ],
+    "outputs": [
+      {
+        "index": 0,
+        "address": "bc1qsynth_lldikti_kas_konsorsium",
+        "valueBtc": 1.39880000,
+        "valueSats": 139880000,
+        "spent": false
+      }
+    ],
+    "feeBtc": 0.00040000,
+    "feeSats": 40000,
+    "virtualSize": 310,
+    "feeRateSatVb": 129.03
+  }
+]

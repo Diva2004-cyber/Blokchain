@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="100%" height="100%" style="background-color: #0b1120; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="rootGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#be185d" />
+    </linearGradient>
+    <linearGradient id="parentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#6d28d9" />
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="auditGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+  </defs>
+
+  <text x="450" y="45" font-size="22" font-weight="800" fill="url(#headerGrad)" text-anchor="middle">STRUKTUR POHON MERKLE DAN JALUR PEMBUKTIAN (MERKLE PROOF)</text>
+  <text x="450" y="75" font-size="13" fill="#94a3b8" text-anchor="middle">Kompresi Kriptografis Kumpulan Kredensial Akademik (Kompleksitas Verifikasi O(log N))</text>
+
+  <!-- Connectors -->
+  <!-- Root to Parents -->
+  <line x1="450" y1="170" x2="250" y2="270" stroke="#64748b" stroke-width="2.5" />
+  <line x1="450" y1="170" x2="650" y2="270" stroke="#64748b" stroke-width="2.5" />
+
+  <!-- Parents to Leaves -->
+  <line x1="250" y1="330" x2="150" y2="430" stroke="#64748b" stroke-width="2" />
+  <line x1="250" y1="330" x2="350" y2="430" stroke="#10b981" stroke-width="3" stroke-dasharray="4" />
+  <line x1="650" y1="330" x2="550" y2="430" stroke="#64748b" stroke-width="2" />
+  <line x1="650" y1="330" x2="750" y2="430" stroke="#64748b" stroke-width="2" />
+
+  <!-- Root Node -->
+  <rect x="300" y="110" width="300" height="70" rx="10" fill="url(#rootGrad)" stroke="#f43f5e" stroke-width="2" />
+  <text x="450" y="138" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">MERKLE ROOT (H_ROOT)</text>
+  <text x="450" y="162" font-size="11" fill="#ffe4e6" text-anchor="middle">keccak256( H_12 || H_34 ) [Tersimpan On-Chain]</text>
+
+  <!-- Level 1 Intermediate Nodes -->
+  <rect x="120" y="270" width="260" height="60" rx="8" fill="url(#parentGrad)" stroke="#a855f7" />
+  <text x="250" y="297" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Intermediate Node H_12</text>
+  <text x="250" y="318" font-size="11" fill="#e9d5ff" text-anchor="middle">keccak256( H_1 || H_2 )</text>
+
+  <rect x="520" y="270" width="260" height="60" rx="8" fill="url(#auditGrad)" stroke="#34d399" stroke-width="2" />
+  <text x="650" y="297" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Node H_34 [Audit Path 2]</text>
+  <text x="650" y="318" font-size="11" fill="#d1fae5" text-anchor="middle">keccak256( H_3 || H_4 )</text>
+
+  <!-- Level 0 Leaf Nodes (Hash of Records) -->
+  <rect x="50" y="430" width="200" height="60" rx="6" fill="url(#leafGrad)" stroke="#38bdf8" />
+  <text x="150" y="455" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Daun H_1 [Target Uji]</text>
+  <text x="150" y="475" font-size="11" fill="#bae6fd" text-anchor="middle">keccak256( Record R-01 )</text>
+
+  <rect x="250" y="430" width="200" height="60" rx="6" fill="url(#auditGrad)" stroke="#34d399" stroke-width="2" />
+  <text x="350" y="455" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Daun H_2 [Audit Path 1]</text>
+  <text x="350" y="475" font-size="11" fill="#d1fae5" text-anchor="middle">keccak256( Record R-02 )</text>
+
+  <rect x="450" y="430" width="200" height="60" rx="6" fill="url(#leafGrad)" stroke="#38bdf8" />
+  <text x="550" y="455" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Daun H_3</text>
+  <text x="550" y="475" font-size="11" fill="#bae6fd" text-anchor="middle">keccak256( Record R-03 )</text>
+
+  <rect x="650" y="430" width="200" height="60" rx="6" fill="url(#leafGrad)" stroke="#38bdf8" />
+  <text x="750" y="455" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">Daun H_4</text>
+  <text x="750" y="475" font-size="11" fill="#bae6fd" text-anchor="middle">keccak256( Record R-04 )</text>
+
+  <!-- Ground Records -->
+  <rect x="50" y="520" width="200" height="50" rx="4" fill="#1e293b" stroke="#475569" />
+  <text x="150" y="542" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">R-01: Budi Santoso</text>
+  <text x="150" y="558" font-size="10" fill="#94a3b8" text-anchor="middle">Informatika S1 (IPK 3.85)</text>
+
+  <rect x="250" y="520" width="200" height="50" rx="4" fill="#1e293b" stroke="#475569" />
+  <text x="350" y="542" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">R-02: Siti Aminah</text>
+  <text x="350" y="558" font-size="10" fill="#94a3b8" text-anchor="middle">Sistem Informasi S2</text>
+
+  <rect x="450" y="520" width="200" height="50" rx="4" fill="#1e293b" stroke="#475569" />
+  <text x="550" y="542" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">R-03: Ahmad Fauzi</text>
+  <text x="550" y="558" font-size="10" fill="#94a3b8" text-anchor="middle">Teknik Elektro S1</text>
+
+  <rect x="650" y="520" width="200" height="50" rx="4" fill="#1e293b" stroke="#475569" />
+  <text x="750" y="542" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle">R-04: Rina Wulandari</text>
+  <text x="750" y="558" font-size="10" fill="#94a3b8" text-anchor="middle">Informatika UNSIL S1</text>
+
+  <!-- Note Footer -->
+  <rect x="50" y="590" width="800" height="40" rx="6" fill="#064e3b" stroke="#059669" />
+  <text x="450" y="615" font-size="12" fill="#a7f3d0" text-anchor="middle">
+    Bukti Keanggotaan R-01 (Merkle Proof) Hanya Memerlukan Dua Hash: [ H_2 , H_34 ] Tanpa Mengungkap Isi R-02, R-03, R-04
+  </text>
+</svg>
